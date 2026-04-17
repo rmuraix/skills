@@ -13,7 +13,7 @@ ghq is a repository management tool that organizes Git repositories in a structu
 ```
 ~/ghq/
 ├── github.com/
-│   ├── rmuraix/
+│   ├── octocat/
 │   │   ├── skills/
 │   │   └── dotfiles/
 │   └── someorg/
@@ -44,8 +44,8 @@ Lists all repositories managed by ghq.
 ```bash
 ghq list
 # Output:
-# github.com/rmuraix/skills
-# github.com/rmuraix/dotfiles
+# github.com/octocat/skills
+# github.com/octocat/dotfiles
 # github.com/someorg/somerepo
 ```
 
