@@ -1,6 +1,7 @@
 ---
 name: ghq
 description: Efficiently manage and discover Git repositories using ghq. Use this skill when the user mentions working with multiple repositories, searching for projects, cloning new repositories, or navigating between different codebases. Trigger whenever repository discovery, cross-repository operations, or project exploration is needed.
+license: MIT
 ---
 
 # ghq: Efficient Repository Management

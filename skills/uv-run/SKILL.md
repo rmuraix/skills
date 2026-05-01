@@ -1,6 +1,7 @@
 ---
 name: uv-run
 description: Use `uv run` instead of `python` or `python3` for all Python execution. Trigger whenever the user wants to run a Python script, module, or tests, or needs temporary packages via `uv run --with`.
+license: MIT
 ---
 
 # uv run: How to Execute Python
