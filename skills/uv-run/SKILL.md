@@ -33,7 +33,7 @@ python3 -m uvicorn app:app
 
 # Do this
 uv run pytest           # if pytest is in pyproject.toml
-uv run -m uvicorn app:app
+uv run python -m uvicorn app:app
 ```
 
 ### Inline code
