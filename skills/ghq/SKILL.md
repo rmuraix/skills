@@ -179,9 +179,9 @@ cd ~/ghq/github.com/user/repo
 Do this:
 ```bash
 # ✅ Do this
-cd "$(ghq root)/github.com/user/repo"
+cd "$(ghq list -p github.com/user/repo | head -n1)"
 # or
-REPO_PATH=$(ghq list -p | grep user/repo | head -n1)
+REPO_PATH=$(ghq list -p user/repo | head -n1)
 cd "$REPO_PATH"
 ```
 
