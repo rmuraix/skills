@@ -104,7 +104,7 @@ cd repo
 ```bash
 # ✅ Do this
 ghq get https://github.com/user/repo
-cd $(ghq root)/github.com/user/repo
+cd "$(ghq list -p github.com/user/repo | head -n1)"
 ```
 
 Why this is better:
