@@ -76,8 +76,8 @@ uv run pytest --cov=src
 ### Starting a dev server
 
 ```bash
-uv run -m uvicorn main:app --reload
-uv run -m flask run
+uv run uvicorn main:app --reload
+uv run flask run
 uv run manage.py runserver   # Django
 ```
 
