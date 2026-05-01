@@ -1,0 +1,71 @@
+{
+  "skill_name": "uv-run",
+  "evals": [
+    {
+      "id": 0,
+      "prompt": "How do I run main.py?",
+      "expected_output": "Recommend `uv run main.py` as the primary way, not `python main.py` or `python3 main.py`",
+      "files": [],
+      "assertions": [
+        {
+          "id": "uses-uv-run",
+          "description": "Response recommends `uv run main.py` or `uv run` as the primary command",
+          "type": "contains",
+          "value": "uv run"
+        },
+        {
+          "id": "no-bare-python-as-primary",
+          "description": "Response does not present `python main.py` or `python3 main.py` as the first or main recommendation",
+          "type": "not_primary_recommendation",
+          "value": "python main.py"
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "prompt": "I want to run all my pytest tests — what's the command?",
+      "expected_output": "Recommend `uv run pytest` as the primary way, not bare `pytest` or `python -m pytest`",
+      "files": [],
+      "assertions": [
+        {
+          "id": "uses-uv-run-pytest",
+          "description": "Response recommends `uv run pytest` as the primary command",
+          "type": "contains",
+          "value": "uv run pytest"
+        },
+        {
+          "id": "no-bare-pytest-as-primary",
+          "description": "Response does not present bare `pytest` or `python -m pytest` as the first or main recommendation",
+          "type": "not_primary_recommendation",
+          "value": "python -m pytest"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "I want to quickly run a script that uses numpy and matplotlib outside of my project — what's the easiest way?",
+      "expected_output": "Recommend `uv run --with numpy --with matplotlib script.py` without pip install or venv setup",
+      "files": [],
+      "assertions": [
+        {
+          "id": "uses-with-flag",
+          "description": "Response includes `uv run --with` as the recommended approach",
+          "type": "contains",
+          "value": "uv run --with"
+        },
+        {
+          "id": "mentions-both-packages",
+          "description": "Both numpy and matplotlib appear with --with",
+          "type": "contains",
+          "value": "--with numpy"
+        },
+        {
+          "id": "no-pip-install-as-primary",
+          "description": "Response does not present `pip install` as the first or recommended solution",
+          "type": "not_primary_recommendation",
+          "value": "pip install"
+        }
+      ]
+    }
+  ]
+}
