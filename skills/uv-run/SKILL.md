@@ -96,6 +96,6 @@ print(df.describe())
 | Situation | Command |
 |-----------|---------|
 | Run a script | `uv run script.py` |
-| Run a module | `uv run -m module` or `uv run module` |
+| Run a module | `uv run python -m module` or `uv run module` |
 | Temporary package | `uv run --with package script.py` |
 | Multiple temporary packages | `uv run --with pkg1 --with pkg2 script.py` |
