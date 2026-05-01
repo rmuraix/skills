@@ -25,19 +25,6 @@ ghq is a repository management tool that organizes Git repositories in a structu
 
 ## Core Commands
 
-### `ghq root`
-Shows the root directory where all repositories are stored.
-
-```bash
-ghq root
-# Output: /Users/username/ghq
-```
-
-Use this to:
-- Determine the base path for all repositories
-- Build full paths to specific repositories
-- Understand where repositories will be cloned
-
 ### `ghq list`
 Lists all repositories managed by ghq.
 
@@ -51,7 +38,6 @@ ghq list
 
 Options:
 - `ghq list -p` : Show full paths instead of relative paths
-- `ghq list --full-path` : Same as `-p`
 
 Use this to:
 - Discover available repositories
@@ -166,7 +152,7 @@ fi
 
 - **For repository discovery:** Use `ghq list`, not `find` or `ls`
 - **For cloning:** Use `ghq get`, not `git clone`
-- **For path resolution:** Use `ghq root` + `ghq list -p`, not hardcoded paths
+- **For path resolution:** Use `ghq list -p`, not hardcoded paths
 
 ### Build paths programmatically
 
