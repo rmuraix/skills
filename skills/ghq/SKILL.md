@@ -86,7 +86,7 @@ find ~ -name "project-name" -type d
 **Use ghq list with filtering:**
 ```bash
 # ✅ Do this
-ghq list | grep project-name
+ghq list project-name
 # or get full paths
 ghq list -p | grep project-name
 ```
