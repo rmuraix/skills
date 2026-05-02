@@ -40,7 +40,7 @@ Run this for every action in the workflow before writing or modifying it.
 
 If `gh release view` fails (no releases, only tags), fall back to:
 ```bash
-tag=$(gh api "repos/$repo/tags" --jq '.[0].name')
+tag=$(gh api "repos/$repo/tags" --jq '.[].name' | sort -V | tail -n 1)
 sha=$(gh api "repos/$repo/commits/$tag" --jq .sha)
 ```
 
