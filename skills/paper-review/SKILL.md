@@ -76,7 +76,7 @@ One-sentence rationale: ...
 
 ## Scoring Guidance
 
-- Use the full scale. A score of 3 means adequate but not compelling; 2 means likely below acceptance quality; 1 means a fundamental problem.
+- Use the full scale. 5: Exceptional/Award-quality; 4: Strong contribution; 3: Adequate but not compelling; 2: Likely below acceptance quality; 1: Fundamental problem.
 - Align the recommendation with the major weaknesses. Do not give a positive recommendation if the evidence does not support the core claim.
 - If the paper is interesting but not ready, say so directly and identify the blocker.
 - Distinguish "fixable in revision" from "requires a different paper." This is often the most useful part of the review.
