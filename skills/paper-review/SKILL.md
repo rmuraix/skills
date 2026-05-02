@@ -85,7 +85,7 @@ One-sentence rationale: ...
 
 Make revision advice specific enough to act on:
 
-- Start with P0 changes that must be fixed before submission or rebuttal.
+- Use P0 for changes that must be fixed before submission/rebuttal, P1 for important improvements, and P2 for minor/stylistic suggestions.
 - Tie each action to a section, experiment, proof, table, figure, or claim when possible.
 - Explain why the action changes the review outcome.
 - Prefer a short, high-leverage plan over a long wishlist.
