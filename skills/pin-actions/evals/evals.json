@@ -1,0 +1,89 @@
+{
+  "skill_name": "pin-actions",
+  "evals": [
+    {
+      "id": 0,
+      "prompt": "Write a GitHub Actions CI workflow for a Node.js project. It should run on push and pull_request to main, install dependencies with npm ci, and run npm test. Use actions/checkout and actions/setup-node.",
+      "expected_output": "A .github/workflows/ci.yml file that uses the latest versions of actions/checkout and actions/setup-node with correct major-version tags (e.g. @v4), verified via gh CLI.",
+      "files": [],
+      "assertions": [
+        {
+          "id": "checkout-uses-tag-not-sha",
+          "description": "actions/checkout uses a @vN major-version tag, not a SHA",
+          "type": "contains",
+          "value": "actions/checkout@v"
+        },
+        {
+          "id": "setup-node-uses-tag-not-sha",
+          "description": "actions/setup-node uses a @vN major-version tag, not a SHA",
+          "type": "contains",
+          "value": "actions/setup-node@v"
+        },
+        {
+          "id": "no-old-checkout-v2",
+          "description": "actions/checkout@v2 (outdated) is not used",
+          "type": "not_primary_recommendation",
+          "value": "actions/checkout@v2"
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "prompt": "Review and update this workflow file to use the latest action versions:\n\nname: CI\non: [push]\njobs:\n  build:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@v2\n      - uses: actions/setup-python@v4\n      - uses: docker/setup-buildx-action@v2\n        with:\n          version: latest\n      - uses: docker/build-push-action@v4\n        with:\n          push: false",
+      "expected_output": "Updated workflow where actions/checkout and actions/setup-python use the latest major-version tags, and docker/setup-buildx-action and docker/build-push-action are pinned to full commit SHAs with version comments (e.g. @<sha>  # v3.0.0).",
+      "files": [],
+      "assertions": [
+        {
+          "id": "checkout-not-v2",
+          "description": "actions/checkout@v2 is replaced with a newer version",
+          "type": "not_primary_recommendation",
+          "value": "actions/checkout@v2"
+        },
+        {
+          "id": "docker-buildx-sha-pinned",
+          "description": "docker/setup-buildx-action is pinned to a SHA (40 hex chars after @)",
+          "type": "contains",
+          "value": "docker/setup-buildx-action@"
+        },
+        {
+          "id": "docker-buildx-has-version-comment",
+          "description": "docker/setup-buildx-action SHA line has a # v version comment",
+          "type": "contains",
+          "value": "docker/setup-buildx-action@"
+        },
+        {
+          "id": "docker-build-push-sha-pinned",
+          "description": "docker/build-push-action is pinned to a SHA",
+          "type": "contains",
+          "value": "docker/build-push-action@"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "I'm setting up a workflow that deploys to AWS. Add a step to configure AWS credentials using aws-actions/configure-aws-credentials. The role ARN is arn:aws:iam::123456789012:role/my-github-role and the region is ap-northeast-1.",
+      "expected_output": "A workflow step using aws-actions/configure-aws-credentials pinned to a full commit SHA with a version comment, not a floating tag.",
+      "files": [],
+      "assertions": [
+        {
+          "id": "aws-action-present",
+          "description": "aws-actions/configure-aws-credentials is used",
+          "type": "contains",
+          "value": "aws-actions/configure-aws-credentials@"
+        },
+        {
+          "id": "role-arn-included",
+          "description": "The role ARN is included in the step",
+          "type": "contains",
+          "value": "arn:aws:iam::123456789012:role/my-github-role"
+        },
+        {
+          "id": "region-included",
+          "description": "The AWS region ap-northeast-1 is included",
+          "type": "contains",
+          "value": "ap-northeast-1"
+        }
+      ]
+    }
+  ]
+}
